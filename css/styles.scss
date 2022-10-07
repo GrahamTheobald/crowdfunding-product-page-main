@@ -23,6 +23,8 @@ img {
 body {
     font-family: 'Commissioner';
     position: relative;
+    background-color: var(--LightGray);
+
 }
 
 .btn-teal {
@@ -38,6 +40,7 @@ body {
 }
 .btn-teal:hover {
     cursor: pointer;
+    background-color: var(--DarkCyan);
 }
 .txt {
     color: var(--DarkGray);
@@ -54,11 +57,8 @@ body {
         justify-content: space-between;
         align-items: center;
         position: relative;
-        .menu-close {
+        .menu-close.hidden {
             display: none;
-        }
-        &__menu.reveal {
-            display: block;
         }
         &__menu.hidden {
             display: none;
@@ -83,7 +83,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    background-color: var(--LightGray);
     &__title, &__stats, &__about {
         background-color: white;
         padding: 1.5rem;
@@ -111,9 +110,24 @@ body {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            .bookmark {
+            .bookmark.bookmarked {
+                img {
+                    filter: invert(33%) sepia(91%) saturate(391%) hue-rotate(127deg) brightness(98%) contrast(91%);
+                }
                 p {
+                    color: var(--DarkCyan);
+                }
+            }
+            .bookmark {
+                display: flex;
+                align-items: center;
+                background-color: var(--LightGray);
+                border-radius: 3rem;
+                p {
+                    padding: 0 1rem;
                     display: none;
+                    color: var(--DarkGray);
+                    font-weight: 700;
                 }
             }
         }
@@ -259,6 +273,9 @@ body {
             display: none;
         }
         &__select {
+            .modal-close {
+                cursor: pointer;
+            }
             &-title {
                 display: flex;
                 justify-content: space-between;
@@ -275,6 +292,9 @@ body {
                 gap: 1rem;
                 align-items: center;
 
+                &-select:hover {
+                    cursor: pointer;
+                }
                 &-select {
                     width: 2rem;
                     height: 2rem;
@@ -331,6 +351,13 @@ body {
                         input::placeholder {
                             color: black;
                         }
+                        input::-webkit-inner-spin-button {
+                            -webkit-appearance: none;
+                            appearance: none; 
+                        }
+                        input:focus {
+                            outline: none;
+                        }
                         input {
                             width: 2rem;
                             font-size: inherit;
@@ -348,3 +375,4 @@ body {
     }
 }
 
+@import 'styles-desktop.scss'

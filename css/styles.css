@@ -22,6 +22,7 @@ img {
 body {
   font-family: "Commissioner";
   position: relative;
+  background-color: var(--LightGray);
 }
 
 .btn-teal {
@@ -38,6 +39,7 @@ body {
 
 .btn-teal:hover {
   cursor: pointer;
+  background-color: var(--DarkCyan);
 }
 
 .txt {
@@ -57,11 +59,8 @@ body {
   align-items: center;
   position: relative;
 }
-.header__nav .menu-close {
+.header__nav .menu-close.hidden {
   display: none;
-}
-.header__nav__menu.reveal {
-  display: block;
 }
 .header__nav__menu.hidden {
   display: none;
@@ -85,7 +84,6 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  background-color: var(--LightGray);
 }
 .main__title, .main__stats, .main__about {
   background-color: white;
@@ -116,8 +114,23 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.main__title-buttons .bookmark.bookmarked img {
+  filter: invert(33%) sepia(91%) saturate(391%) hue-rotate(127deg) brightness(98%) contrast(91%);
+}
+.main__title-buttons .bookmark.bookmarked p {
+  color: var(--DarkCyan);
+}
+.main__title-buttons .bookmark {
+  display: flex;
+  align-items: center;
+  background-color: var(--LightGray);
+  border-radius: 3rem;
+}
 .main__title-buttons .bookmark p {
+  padding: 0 1rem;
   display: none;
+  color: var(--DarkGray);
+  font-weight: 700;
 }
 .main__stats-st {
   display: flex;
@@ -253,6 +266,9 @@ body {
 .modal__content__select.hidden {
   display: none;
 }
+.modal__content__select .modal-close {
+  cursor: pointer;
+}
 .modal__content__select-title {
   display: flex;
   justify-content: space-between;
@@ -268,6 +284,9 @@ body {
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+.modal__content__select .top__left-select:hover {
+  cursor: pointer;
 }
 .modal__content__select .top__left-select {
   width: 2rem;
@@ -323,6 +342,13 @@ body {
 .modal__content__select .b-submit-input input::placeholder {
   color: black;
 }
+.modal__content__select .b-submit-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+.modal__content__select .b-submit-input input:focus {
+  outline: none;
+}
 .modal__content__select .b-submit-input input {
   width: 2rem;
   font-size: inherit;
@@ -330,6 +356,96 @@ body {
   font-weight: 700;
   color: black;
   border: none;
+}
+
+@media screen and (min-width: 600px) {
+  .header {
+    background-image: url(../images/image-hero-desktop.jpg);
+    padding: 3rem 8rem;
+  }
+  .header__nav .menu-close, .header__nav .menu-close.reveal {
+    display: none;
+  }
+  .header__nav .menu-open {
+    display: none;
+  }
+  .header__nav__menu.hidden {
+    display: flex;
+  }
+  .header__nav__menu {
+    position: relative;
+    background-color: transparent;
+    display: flex;
+    inset: 0 0 0 0;
+  }
+  .header__nav__menu li {
+    color: white;
+    border: none;
+  }
+  .header__nav__menu li:hover {
+    cursor: pointer;
+  }
+  .main {
+    margin: auto;
+    max-width: 700px;
+  }
+  .main__title, .main__stats, .main__about {
+    padding: 2.5rem;
+  }
+  .main__title .bookmark:hover {
+    cursor: pointer;
+  }
+  .main__title .bookmark p {
+    display: block;
+  }
+  .main__stats-st {
+    flex-direction: row;
+    width: 100%;
+  }
+  .main__stats-st-s {
+    flex: 1;
+    padding-right: 1rem;
+  }
+  .main__stats-st-s p {
+    text-align: left;
+  }
+  .main__stats-st-s::after {
+    border-right: 1px solid var(--LightGray);
+    border-bottom: none;
+    height: 100%;
+    right: 0;
+    left: auto;
+    translate: 0 0;
+    width: 0;
+  }
+  .main__about {
+    gap: 2rem;
+  }
+  .main__about__products__product .a .top {
+    display: flex;
+    justify-content: space-between;
+  }
+  .main__about__products__product .a .top__left-info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .main__about__products__product .a .top__right {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  .main__about__products__product .a .bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .main__about__products__product .b {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .modal__content {
+    max-width: 700px;
+    margin: auto;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */
