@@ -1,4 +1,7 @@
 @media screen and (min-width: 600px) {
+  body .grey-filter {
+    display: none;
+  }
   .header {
     background-image: url(../images/image-hero-desktop.jpg);
     padding: 3rem 8rem;

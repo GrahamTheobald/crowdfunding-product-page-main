@@ -24,6 +24,15 @@ body {
   position: relative;
   background-color: var(--LightGray);
 }
+body .grey-filter.hidden {
+  display: none;
+}
+body .grey-filter {
+  position: absolute;
+  inset: 0 0 0 0;
+  background-color: hsla(0deg, 0%, 30%, 0.7);
+  z-index: 2;
+}
 
 .btn-teal {
   background-color: var(--ModerateCyan);
@@ -58,6 +67,10 @@ body {
   justify-content: space-between;
   align-items: center;
   position: relative;
+  z-index: 3;
+}
+.header__nav .menu-open.hidden {
+  display: none;
 }
 .header__nav .menu-close.hidden {
   display: none;
@@ -77,6 +90,9 @@ body {
 .header__nav__menu li {
   border-bottom: 1px solid var(--LightGray);
   padding: 1.5rem;
+}
+.header__nav__menu li:last-child {
+  border: none;
 }
 
 .main {
@@ -326,6 +342,7 @@ body {
 }
 .modal__content__select .b-submit {
   display: flex;
+  margin-left: auto;
   gap: 1.5rem;
 }
 .modal__content__select .b-submit-input {
@@ -359,6 +376,9 @@ body {
 }
 
 @media screen and (min-width: 600px) {
+  body .grey-filter {
+    display: none;
+  }
   .header {
     background-image: url(../images/image-hero-desktop.jpg);
     padding: 3rem 8rem;

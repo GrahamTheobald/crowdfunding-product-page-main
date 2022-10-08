@@ -24,6 +24,16 @@ body {
     font-family: 'Commissioner';
     position: relative;
     background-color: var(--LightGray);
+    .grey-filter.hidden {
+        display: none;
+    }
+    .grey-filter {
+        position: absolute;
+        inset: 0 0 0 0;
+        background-color: hsla(0, 0%, 30%, 0.7);
+        z-index: 2;
+    }
+
 
 }
 
@@ -57,6 +67,10 @@ body {
         justify-content: space-between;
         align-items: center;
         position: relative;
+        z-index: 3;
+        .menu-open.hidden {
+            display: none;
+        }
         .menu-close.hidden {
             display: none;
         }
@@ -74,6 +88,9 @@ body {
             li {
                 border-bottom: 1px solid var(--LightGray);
                 padding: 1.5rem;
+            }
+            li:last-child {
+                border: none;
             }
         }
     }
@@ -337,6 +354,7 @@ body {
                 }
                 &-submit {
                     display: flex;
+                    margin-left: auto;
                     gap: 1.5rem;
                     &-input {
                         display: flex;

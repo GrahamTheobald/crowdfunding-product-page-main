@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="css/styles.css">  
+  <script src="script.js" defer></script>
   <title>Frontend Mentor | Crowdfunding product page</title>
 </head>
 <body>
+  <div class="grey-filter hidden"></div>
   <header class="header">
     <nav class="header__nav">
       <img src="./images/logo.svg" alt="logo">
@@ -41,11 +42,11 @@
     <section class="main__stats">
       <div class="main__stats-st">
         <div class="main__stats-st-s">
-          <h3>$89,914</h3>
-          <p class="txt">of %100,00 backed</p>
+          <h3 data-total-amount="89914" data-needed="100000">$89,914</h3>
+          <p class="txt">of $100,000 backed</p>
         </div>
         <div class="main__stats-st-s">
-          <h3>5,007</h3>
+          <h3 data-backers="5007">5,007</h3>
           <p class="txt">total backers</p>
         </div>
         <div class="main__stats-st-s">
@@ -71,7 +72,7 @@
         to allow notepads, pens, and USB sticks to be stored under the stand.
       </p>        
       <div class="main__about__products">
-        <div class="main__about__products__product">
+        <div data-product="bamboo" class="main__about__products__product">
           <div class="a">
             <div class="top">
               <div class="top__left">
@@ -93,16 +94,16 @@
             </p>
             <div class="bottom">
               <div class="left">
-                <h5>101</h5>
+                <h5 data-left="101" >101</h5>
                 <p>left</p>
               </div>
-              <button class="btn-teal">
+              <button class="btn-teal product-select">
                 Select Reward
               </button>
             </div> 
           </div>
         </div>
-        <div class="main__about__products__product">
+        <div data-product="stand" class="main__about__products__product">
           <div class="a">
 
             <div class="top">
@@ -125,16 +126,16 @@
             </p>
             <div class="bottom">
               <div class="left">
-                <h5>64</h5>
+                <h5 data-left="64" >64</h5>
                 <p>left</p>
               </div>
-              <button class="btn-teal">
+              <button class="btn-teal product-select">
                 Select Reward
               </button>
             </div> 
           </div>
         </div>
-        <div class="main__about__products__product sold-out">
+        <div data-product="mahogany" class="main__about__products__product sold-out">
           <div class="a">
             <div class="top">
               <div class="top__left">
@@ -156,10 +157,10 @@
             </p>
             <div class="bottom">
               <div class="left">
-                <h5>0</h5>
+                <h5 data-left="0" >0</h5>
                 <p>left</p>
               </div>
-              <button class="btn-teal">
+              <button class="btn-teal product-select">
                 Out of Stock
               </button>
             </div> 
@@ -179,7 +180,7 @@
         <p class="modal__content__select-text txt">Want to support us in bringing in Mastercraft Bamboo moniter riser out in the world?</p>
 
         <div class="main__about__products">
-          <div class="main__about__products__product">
+          <div data-product=" " class="main__about__products__product">
             <div class="a">
               <div class="top">
                 <div class="top__left">
@@ -212,9 +213,21 @@
                 <!-- </button> -->
               </div> 
             </div>
+            <div class="b">
+              <!-- <p class="b-enter">
+                Enter your pledge
+              </p> -->
+              <div class="b-submit">
+                <!-- <div class="b-submit-input">
+                  <p>$</p>
+                  <input type="number" class="pledge-amount" placeholder="200" min="200" data-amount="200">
+                </div> -->
+                <button class="btn-teal pedge-submit">Continue</button>
+              </div>
+            </div>
           </div>
           
-          <div class="main__about__products__product">
+          <div data-product="bamboo" class="main__about__products__product">
             <div class="a">
               <div class="top">
                 <div class="top__left">
@@ -231,7 +244,7 @@
                   </div>
                 </div>
                 <div class="top__right">
-                  <h5>101</h5>
+                  <h5 data-left="101" >101</h5>
                   <p>left</p>
                 </div>
               </div>
@@ -256,14 +269,14 @@
               <div class="b-submit">
                 <div class="b-submit-input">
                   <p>$</p>
-                  <input type="number" class="pledge-amount" placeholder="25"
-                  min="25" data-amount="25">
+                  <input type="number" class="pledge-amount" value="25"
+                  min="25" data-min="25">
                 </div>
                 <button class="btn-teal pedge-submit">Continue</button>
               </div>
             </div>
           </div>
-          <div class="main__about__products__product">
+          <div data-product="stand" class="main__about__products__product">
             <div class="a">
               
               <div class="top">
@@ -281,7 +294,7 @@
                   </div>
                 </div>
                 <div class="top__right">
-                  <h5>64</h5>
+                  <h5 data-left="64">64</h5>
                   <p>left</p>
                 </div>
             </div>
@@ -306,13 +319,13 @@
               <div class="b-submit">
                 <div class="b-submit-input">
                   <p>$</p>
-                  <input type="number" class="pledge-amount" placeholder="75" min="75" data-amount="75">
+                  <input type="number" class="pledge-amount" value="75" min="75" data-min="75">
                 </div>
                 <button class="btn-teal pedge-submit">Continue</button>
               </div>
             </div>
           </div>
-          <div class="main__about__products__product sold-out">
+          <div data-product="mahogany" class="main__about__products__product sold-out">
             <div class="a">
               
               <div class="top">
@@ -330,7 +343,7 @@
                   </div>
                 </div>
                 <div class="top__right">
-                  <h5>0</h5>
+                  <h5 data-left="0">0</h5>
                   <p>left</p>
                 </div>
               </div>
@@ -355,7 +368,7 @@
               <div class="b-submit">
                 <div class="b-submit-input">
                   <p>$</p>
-                  <input type="number" class="pledge-amount" placeholder="200" min="200" data-amount="200">
+                  <input type="number" class="pledge-amount" value="200" min="200" data-amount="200">
                 </div>
                 <button class="btn-teal pedge-submit">Continue</button>
               </div>
@@ -363,7 +376,7 @@
           </div>
         </div>
       </section>
-      <section class="modal__content__thanks">
+      <section class="modal__content__thanks hidden">
         <img src="./images/icon-check.svg" alt="check">
         <h3>Thanks for your support!</h3>
         <p class="txt">
@@ -374,10 +387,8 @@
         <button class="btn-teal button-gotit">
           Got it!
         </button>
-
       </section>
     </div>
-      
   </section>
 </body>
 </html>
